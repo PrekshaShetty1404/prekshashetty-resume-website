@@ -1,0 +1,367 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Preksha Shetty</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: single column portfolio. Hero is split: name and intro left, a facts sheet right.
+   Projects lead with one wide featured card, then two half cards. Education reads as a dated list. */
+:root {
+  --bg: #EDF0F7;
+  --surface: #FFFFFF;
+  --ink: #101828;
+  --muted: #4B5668;
+  --line: #D3D9E6;
+  --accent: #2447C5;
+  --accent-ink: #FFFFFF;
+  --tint: #DCE4FA;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1220; --surface: #131B2F; --ink: #E8ECF6; --muted: #A2ADC4;
+    --line: #25304A; --accent: #8AA6FF; --accent-ink: #0C1220; --tint: #1B2748;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C1220; --surface: #131B2F; --ink: #E8ECF6; --muted: #A2ADC4;
+  --line: #25304A; --accent: #8AA6FF; --accent-ink: #0C1220; --tint: #1B2748;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--bg);
+}
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { max-width: 1080px; margin: 0 auto; }
+
+/* header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.top-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.nav { display: flex; align-items: center; gap: 4px; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { color: var(--muted); text-decoration: none; padding: 6px 10px; border-radius: 8px; font-weight: 500; font-size: 0.95rem; white-space: nowrap; }
+.nav a:hover { color: var(--ink); background: var(--tint); }
+.theme { font: inherit; font-size: 0.9rem; font-weight: 500; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
+.theme:hover { background: var(--tint); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 48px; padding-block: 72px 56px; align-items: start; }
+.hero h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.8rem, 8vw, 5.4rem); line-height: 0.98; letter-spacing: -0.03em; margin: 0 0 20px; text-wrap: balance; }
+.hero .lead { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.3rem, 3vw, 1.75rem); line-height: 1.25; margin: 0 0 20px; max-width: 24ch; text-wrap: balance; }
+.hero p.intro { color: var(--muted); max-width: 56ch; margin: 0 0 28px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-block; font: inherit; font-weight: 600; text-decoration: none; padding: 12px 20px; border-radius: 10px; border: 1.5px solid var(--accent); cursor: pointer; }
+.btn-main { background: var(--accent); color: var(--accent-ink); }
+.btn-main:hover { filter: brightness(1.08); }
+.btn-ghost { background: transparent; color: var(--accent); }
+.btn-ghost:hover { background: var(--tint); }
+
+.facts { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px; margin: 0; display: grid; gap: 18px; }
+.facts div { display: grid; gap: 2px; }
+.facts dt { color: var(--muted); font-size: 0.9rem; }
+.facts dd { margin: 0; font-weight: 600; }
+
+/* sections */
+.sec { padding-block: 56px; border-top: 1px solid var(--line); }
+.sec h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4.5vw, 2.6rem); letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 28px; text-wrap: balance; }
+.about { max-width: 68ch; font-size: 1.12rem; margin: 0; }
+
+/* projects */
+.proj-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.proj { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px; min-width: 0; }
+.proj-feature { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 36px; }
+.proj h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; line-height: 1.2; margin: 0 0 6px; }
+.kind { color: var(--muted); font-size: 0.92rem; margin: 0 0 16px; }
+.proj ul { margin: 0 0 18px; padding-left: 1.15rem; display: grid; gap: 8px; }
+.proj li::marker { color: var(--accent); }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--tint); color: var(--ink); font-size: 0.88rem; font-weight: 500; padding: 4px 12px; border-radius: 999px; }
+.proj ul.chips { padding: 0; margin: 0; }
+
+.flow { background: var(--bg); border-radius: 12px; padding: 22px; align-self: start; }
+.flow h4 { font-family: var(--font-display); font-weight: 600; font-size: 1rem; margin: 0 0 16px; }
+.flow ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.flow li { position: relative; padding: 0 0 20px 30px; font-weight: 500; }
+.flow li:last-child { padding-bottom: 0; }
+.flow li::before { content: ""; position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+.flow li::after { content: ""; position: absolute; left: 6px; top: 22px; bottom: -4px; width: 2px; background: var(--line); }
+.flow li:last-child::after { display: none; }
+.flow small { display: block; color: var(--muted); font-weight: 400; font-size: 0.9rem; }
+
+/* skills */
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.skill { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; min-width: 0; }
+.skill h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin: 0 0 14px; }
+.soft { margin: 28px 0 0; color: var(--muted); max-width: 70ch; }
+.soft strong { color: var(--ink); font-weight: 600; }
+
+/* education */
+.edu { list-style: none; margin: 0; padding: 0; display: grid; }
+.edu li { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding-block: 20px; border-top: 1px solid var(--line); }
+.edu li:first-child { border-top: 0; padding-top: 0; }
+.years { color: var(--accent); font-weight: 600; font-variant-numeric: tabular-nums; }
+.edu h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; margin: 0 0 2px; line-height: 1.25; }
+.edu p { margin: 0; color: var(--muted); }
+
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.two h2 { margin-bottom: 20px; }
+.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.plain li { padding-left: 18px; position: relative; }
+.plain li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.plain span { color: var(--muted); }
+
+/* contact */
+.contact-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px; display: grid; gap: 14px; }
+.contact-lead { margin: 0 0 8px; max-width: 52ch; color: var(--muted); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; justify-content: space-between; padding-block: 14px; border-top: 1px solid var(--line); }
+.row:first-of-type { border-top: 0; }
+.row-label { color: var(--muted); font-size: 0.92rem; }
+.row-val { font-weight: 600; font-size: 1.1rem; overflow-wrap: anywhere; min-width: 0; }
+.row-main { display: grid; gap: 2px; min-width: 0; }
+.copy { font: inherit; font-size: 0.9rem; font-weight: 600; color: var(--accent); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 6px 14px; cursor: pointer; min-width: 78px; }
+.copy:hover { background: var(--tint); }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--muted); font-size: 0.92rem; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 48px 40px; }
+  .proj-feature { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .proj-grid, .two { grid-template-columns: minmax(0, 1fr); }
+  .two { gap: 48px; }
+  .edu li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .proj, .contact-card { padding: 20px; }
+  .nav a { padding: 6px 8px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top">Preksha Shetty</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme" id="theme-btn" type="button">Dark mode</button>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <section class="hero" aria-labelledby="name">
+    <div>
+      <h1 id="name">Preksha Shetty</h1>
+      <p class="lead">I build web and Android applications.</p>
+      <p class="intro">Computer applications graduate with a BCA, now studying for an MCA. I know Python, Java, HTML, CSS and JavaScript, and I am looking for an entry-level IT or software development role.</p>
+      <div class="actions">
+        <a class="btn btn-main" href="#projects">See my projects</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <dl class="facts">
+      <div><dt>Based in</dt><dd>Udupi, Karnataka</dd></div>
+      <div><dt>Studying</dt><dd>MCA at Poornaprajna Institute of Management, graduating 2027</dd></div>
+      <div><dt>Works with</dt><dd>Python, Java, HTML, CSS, JavaScript, Android</dd></div>
+      <div><dt>Looking for</dt><dd>Entry-level IT and software roles</dd></div>
+    </dl>
+  </section>
+
+  <section class="sec" id="about" aria-labelledby="about-h">
+    <h2 id="about-h">About me</h2>
+    <p class="about">I hold a Bachelor of Computer Applications and I am currently pursuing a Master of Computer Applications. I know Python, Java, HTML, CSS and JavaScript, and I have turned that knowledge into working projects, including a Blood Helpline Management System that connects blood donors with people who need blood. I want to keep building practical software and growing my skills on a real team.</p>
+  </section>
+
+  <section class="sec" id="projects" aria-labelledby="projects-h">
+    <h2 id="projects-h">Projects</h2>
+    <div class="proj-grid">
+      <article class="proj proj-feature">
+        <div>
+          <h3>Blood Helpline Management System</h3>
+          <p class="kind">Academic project, web application</p>
+          <ul>
+            <li>Built a web application where blood donors can register and patients can request blood donation.</li>
+            <li>Added donor and patient registration that collects and manages blood groups and contact details.</li>
+            <li>Designed a simple interface for managing donation requests and finding relevant donor information.</li>
+          </ul>
+          <ul class="chips" aria-label="Technologies used">
+            <li class="chip">Python</li><li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">JavaScript</li>
+          </ul>
+        </div>
+        <div class="flow">
+          <h4>How the app works</h4>
+          <ol>
+            <li>Donor registers<small>Name, blood group, contact details</small></li>
+            <li>Details are collected<small>Kept and managed in the app</small></li>
+            <li>Patient requests blood<small>Request is recorded in the app</small></li>
+            <li>Relevant donors are found<small>Users can look up donor information</small></li>
+          </ol>
+        </div>
+      </article>
+
+      <article class="proj">
+        <h3>Smart Waste Management System</h3>
+        <p class="kind">Academic project</p>
+        <ul>
+          <li>Applied technology to improve waste management processes.</li>
+          <li>Designed system features to support waste management activities based on the project requirements.</li>
+          <li>Explored technology-based ways to improve organisation and efficiency.</li>
+        </ul>
+      </article>
+
+      <article class="proj">
+        <h3>Agro Mart Android Application</h3>
+        <p class="kind">Academic project, mobile app</p>
+        <ul>
+          <li>Built an Android application for an agriculture-related use case.</li>
+          <li>Designed the app interface and implemented features based on the project requirements.</li>
+          <li>Applied mobile development concepts to create a digital solution for agricultural needs.</li>
+        </ul>
+        <ul class="chips" aria-label="Technologies used">
+          <li class="chip">Android</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="skills" aria-labelledby="skills-h">
+    <h2 id="skills-h">Skills</h2>
+    <div class="skill-grid">
+      <div class="skill"><h3>Programming languages</h3><ul class="chips"><li class="chip">Python</li><li class="chip">Java</li></ul></div>
+      <div class="skill"><h3>Web technologies</h3><ul class="chips"><li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">JavaScript</li></ul></div>
+      <div class="skill"><h3>Mobile development</h3><ul class="chips"><li class="chip">Android</li></ul></div>
+      <div class="skill"><h3>Office tools</h3><ul class="chips"><li class="chip">Microsoft Excel</li><li class="chip">Microsoft Word</li><li class="chip">Microsoft PowerPoint</li></ul></div>
+    </div>
+    <p class="soft"><strong>Soft skills:</strong> communication, teamwork, problem-solving, time management, adaptability, quick learning and creativity.</p>
+  </section>
+
+  <section class="sec" id="education" aria-labelledby="edu-h">
+    <h2 id="edu-h">Education</h2>
+    <ul class="edu">
+      <li>
+        <span class="years">2025 to 2027 (expected)</span>
+        <div><h3>Master of Computer Applications (MCA)</h3><p>Poornaprajna Institute of Management, Udupi</p></div>
+      </li>
+      <li>
+        <span class="years">2021 to 2024</span>
+        <div><h3>Bachelor of Computer Applications (BCA)</h3><p>Government First Grade College and Centre for PG Studies, Thenkanidiyoor, Udupi</p></div>
+      </li>
+      <li>
+        <span class="years">2019 to 2021</span>
+        <div><h3>Pre-University Course, Science</h3><p>Government Pre-University College, Udupi</p></div>
+      </li>
+      <li>
+        <span class="years">2019</span>
+        <div><h3>SSLC</h3><p>Mount Rosary English Medium School, Santhekatte, Kallianpur, Udupi</p></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sec" aria-label="Certifications and languages">
+    <div class="two">
+      <div>
+        <h2>Certifications</h2>
+        <ul class="plain">
+          <li>Cloud Computing <span>(SWAYAM NPTEL)</span></li>
+          <li>Natural Language Processing <span>(SWAYAM NPTEL)</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Languages</h2>
+        <ul class="plain">
+          <li>English</li><li>Hindi</li><li>Kannada</li><li>Tulu</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Contact</h2>
+    <div class="contact-card">
+      <p class="contact-lead">I am open to entry-level IT and software development roles. Email is the quickest way to reach me.</p>
+      <div class="row">
+        <div class="row-main"><span class="row-label">Email</span><span class="row-val" id="email-val">prekshashetty1404@gmail.com</span></div>
+        <button class="copy" type="button" data-target="email-val">Copy</button>
+      </div>
+      <div class="row">
+        <div class="row-main"><span class="row-label">Phone</span><span class="row-val" id="phone-val">9741199804</span></div>
+        <button class="copy" type="button" data-target="phone-val">Copy</button>
+      </div>
+      <div class="row">
+        <div class="row-main"><span class="row-label">Location</span><span class="row-val">Udupi, Karnataka</span></div>
+        <a class="btn btn-main" href="mailto:prekshashetty1404@gmail.com">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Preksha Shetty, Udupi, Karnataka</div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-btn');
+  function isDark() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t === 'dark';
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function label() { btn.textContent = isDark() ? 'Light mode' : 'Dark mode'; }
+  btn.addEventListener('click', function () {
+    root.setAttribute('data-theme', isDark() ? 'light' : 'dark');
+    label();
+  });
+  label();
+
+  function selectText(el) {
+    var r = document.createRange();
+    r.selectNodeContents(el);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  }
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = document.getElementById(b.getAttribute('data-target'));
+      var text = el.textContent.trim();
+      function done(msg) {
+        b.textContent = msg;
+        setTimeout(function () { b.textContent = 'Copy'; }, 1800);
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () { done('Copied'); }, function () { selectText(el); done('Selected'); });
+      } catch (e) { selectText(el); done('Selected'); }
+    });
+  });
+})();
+</script>
+
+</body></html>
